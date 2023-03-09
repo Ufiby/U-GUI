@@ -1,0 +1,9 @@
+##grflangid 0x01
+STR_GRF_NAME							:U&GUI
+STR_GRF_DESCRIPTION						:A graphics replacement set for GUI.{}{YELLOW}U&GUI{}{}{BLACK}Requires version 12.1 {BLACK}or later{}{}©2020 Yuri Gashin{}Draw or coded by {LTBLUE}Ufiby™{}{BLACK}License: {SILVER}GPL v2{}
+STR_GRF_URL						    	:https://www.tt-forums.net/viewtopic.php?f=67&t=84591
+
+STR_OPENTTD_VERSION						:12.1
+
+STR_PARAM_CURSOR_NAME                   :Enable custom cursor
+STR_PARAM_CURSOR_DESC                   :♫♪
