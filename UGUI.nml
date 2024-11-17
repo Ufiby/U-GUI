@@ -1,0 +1,373 @@
+grf {
+    grfid: "UFI\70";
+    name: string(STR_GRF_NAME);
+    desc: string(STR_GRF_DESCRIPTION);
+    url:  string(STR_GRF_URL);
+    version: 50;
+    min_compatible_version: 40;
+  param 0 {
+  param_bridge_icon {
+   type: bool;
+   name: string(STR_PARAM_BRIDGE_ICON_NAME);
+   desc: string(STR_PARAM_BRIDGE_ICON_DESC);
+   def_value: 0;
+   }
+  }
+ }
+
+if (ttd_platform != PLATFORM_OPENTTD || (openttd_version < version_openttd(14, 0))) {
+    error(FATAL, REQUIRES_OPENTTD, string(STR_OPENTTD_VERSION));
+    }
+//==================================================================================================================================
+//								TEMPLATE
+//==================================================================================================================================
+template tmpl_32px(x, y)    { [x, y, 32, 32, 0, 0, NOCROP]        }
+template tmpl_32px_A(x, y)  { [x, y, 32, 32, 0, 0, NOCROP | ANIM] }
+template tmpl_50x32px(x, y) { [x, y, 50, 32, 0, 0, NOCROP]        }
+template tmpl_26px(x, y)    { [x, y, 26, 26, 0, 0, NOCROP]        }
+template tmpl_cursor(x, y)  { [x, y, 30, 36, 0, 0, NOCROP]        }
+template tmpl_20px(x, y)    { [x, y, 20, 20, 0, 0, NOCROP]        }
+template tmpl_16px(x, y)    { [x, y, 16, 16, 0, 0, NOCROP]        }
+
+//replace spr142(142,   "gfx/GUI.png") {[499, 533, 16, 16, 0, 0, NOCROP]}                   //V 4889
+//==================================================================================================================================
+//								SPRITES
+//==================================================================================================================================
+//************************ TOOLBAR *******************************
+replace    (726,   "gfx/GUI.png")        { tmpl_32px(1,1)         }          //PAUSE
+replacenew (OTTD_GUI, "gfx/GUI.png",90)  { tmpl_32px(37,1)        }          //FORWARD 
+replace    (751,   "gfx/GUI.png")        { tmpl_32px(73,1)        }          //SETTING
+replace    (724,   "gfx/GUI.png")        { tmpl_32px(109,1)       }          //SAVE GAME 1
+replace    (725,   "gfx/GUI.png")        { tmpl_32px(145,1)       }          //SAVE GAME 2
+replace    (708,   "gfx/GUI.png")        { tmpl_32px(181,1)       }          //WORLD MAP
+replace    (4077,  "gfx/GUI.png")        { tmpl_32px(217,1)       }          //CITY
+replace    (679,   "gfx/GUI.png")        { tmpl_32px(253,1)       }          //SUBSIDY
+replace    (1299,  "gfx/GUI.png")        { tmpl_32px(289,1)       }          //STATION
+replace    (737,   "gfx/GUI.png")        { tmpl_32px(325,1)       }          //MONEY
+replace    (743,   "gfx/GUI.png")        { tmpl_32px(361,1)       }          //COMPANY
+replace    (745,   "gfx/GUI.png")        { tmpl_32px(397,1)       }          //CHART
+replace    (684,   "gfx/GUI.png")        { tmpl_32px(433,1)       }          //COMPANY RATING
+replacenew (OTTD_GUI, "gfx/GUI.png",169) { tmpl_32px(469,1)       }          //STORY BOOK
+replacenew (OTTD_GUI, "gfx/GUI.png",171) { tmpl_32px(505,1)       }          //GOAL LIST
+replace    (741,   "gfx/GUI.png")        { tmpl_32px(541,1)       }          //ENTERPRISES
+replace    (731,   "gfx/GUI.png")        { tmpl_32px(577,1)       }          //TRAIN
+replace    (732,   "gfx/GUI.png")        { tmpl_32px(613,1)       }          //RV
+replace    (733,   "gfx/GUI.png")        { tmpl_32px(649,1)       }          //SHIP
+replace    (734,   "gfx/GUI.png")        { tmpl_32px(685,1)       }          //PLANE
+replace    (735,   "gfx/GUI.png")        { tmpl_32px(721,1)       }          //ZOOM IN
+replace    (736,   "gfx/GUI.png")        { tmpl_32px(757,1)       }          //ZOOM OUT
+replace    (727,   "gfx/GUI.png")        { tmpl_32px(793,1)       }          //RAIL
+replace    (728,   "gfx/GUI.png")        { tmpl_32px(829,1)       }          //ROAD
+replacenew (OTTD_GUI, "gfx/GUI.png",179) { tmpl_32px(865,1)       }          //TRAMWAY
+replace    (729,   "gfx/GUI.png")        { tmpl_32px(901,1)       }          //WATERWAYS
+replace    (730,   "gfx/GUI.png")        { tmpl_32px(937,1)       }          //AIRPORT
+replace    (4083,  "gfx/GUI.png")        { tmpl_32px(1,37)        }          //LANDSCAPE
+replace    (713,   "gfx/GUI.png")        { tmpl_32px(37,37)       }          //MUSICS
+replace    (680,   "gfx/GUI.png")        { tmpl_32px(73,37)       }          //NEWS
+replace    (723,   "gfx/GUI.png")        { tmpl_32px(109,37)      }          //INFO
+replacenew (OTTD_GUI, "gfx/GUI.png",144) { tmpl_32px(145,37)      }          //TOOLBAR SWITCH
+//************************ MINIMAP *******************************
+replace    (738,   "gfx/GUI.png")        { tmpl_32px(793,37)      }          //TERRAIN
+replace    (739,   "gfx/GUI.png")        { tmpl_32px(829,37)      }          //TRANSPORT
+replacenew (OTTD_GUI, "gfx/GUI.png",174) { tmpl_32px(865,37)      }          //CARGO FLOWS
+replace    (740,   "gfx/GUI.png")        { tmpl_32px(901,37)      }          //ROUTES
+replace    (742,   "gfx/GUI.png")        { tmpl_32px(937,37)      }          //TREES
+//************************ VEHICLE VIEW *******************************
+replacenew (OTTD_GUI, "gfx/GUI.png",114) { tmpl_32px(1,73)        }          //CREATE GROUP  (TRAIN)
+replacenew (OTTD_GUI, "gfx/GUI.png",118) { tmpl_32px(37,73)       }          //DELETE GROUP  (TRAIN)
+replacenew (OTTD_GUI, "gfx/GUI.png",122) { tmpl_32px(73,73)       }          //RENAME GROUP  (TRAIN)
+replacenew (OTTD_GUI, "gfx/GUI.png",175) { tmpl_32px(109,73)      }          //COLOUR GROUP  (TRAIN)
+replacenew (OTTD_GUI, "gfx/GUI.png",130) { tmpl_32px(145,73)      }          //AUTOCORRECT   (TRAIN)
+replacenew (OTTD_GUI, "gfx/GUI.png",126) { tmpl_32px(181,73)      }          //NO AUTOCORRECT(TRAIN)
+replacenew (OTTD_GUI, "gfx/GUI.png",115) { tmpl_32px(217,73)      }          //CREATE GROUP  (RV)
+replacenew (OTTD_GUI, "gfx/GUI.png",119) { tmpl_32px(253,73)      }          //DELETE GROUP  (RV)
+replacenew (OTTD_GUI, "gfx/GUI.png",123) { tmpl_32px(289,73)      }          //RENAME GROUP  (RV)
+replacenew (OTTD_GUI, "gfx/GUI.png",176) { tmpl_32px(325,73)      }          //COLOUR GROUP  (RV)
+replacenew (OTTD_GUI, "gfx/GUI.png",131) { tmpl_32px(361,73)      }          //AUTOCORRECT   (RV)
+replacenew (OTTD_GUI, "gfx/GUI.png",127) { tmpl_32px(397,73)      }          //NO AUTOCORRECT(RV)
+replacenew (OTTD_GUI, "gfx/GUI.png",116) { tmpl_32px(433,73)      }          //CREATE GROUP  (SHIP)
+replacenew (OTTD_GUI, "gfx/GUI.png",120) { tmpl_32px(469,73)      }          //DELETE GROUP  (SHIP)
+replacenew (OTTD_GUI, "gfx/GUI.png",124) { tmpl_32px(505,73)      }          //RENAME GROUP  (SHIP)
+replacenew (OTTD_GUI, "gfx/GUI.png",177) { tmpl_32px(541,73)      }          //COLOUR GROUP  (SHIP)
+replacenew (OTTD_GUI, "gfx/GUI.png",132) { tmpl_32px(577,73)      }          //AUTOCORRECT   (SHIP)
+replacenew (OTTD_GUI, "gfx/GUI.png",128) { tmpl_32px(613,73)      }          //NO AUTOCORRECT(SHIP)
+replacenew (OTTD_GUI, "gfx/GUI.png",117) { tmpl_32px(649,73)      }          //CREATE GROUP  (AIRCRAFT)
+replacenew (OTTD_GUI, "gfx/GUI.png",121) { tmpl_32px(685,73)      }          //DELETE GROUP  (AIRCRAFT)
+replacenew (OTTD_GUI, "gfx/GUI.png",125) { tmpl_32px(721,73)      }          //RENAME GROUP  (AIRCRAFT)
+replacenew (OTTD_GUI, "gfx/GUI.png",178) { tmpl_32px(757,73)      }          //COLOUR GROUP  (AIRCRAFT)
+replacenew (OTTD_GUI, "gfx/GUI.png",133) { tmpl_32px(793,73)      }          //AUTOCORRECT   (AIRCRAFT)
+replacenew (OTTD_GUI, "gfx/GUI.png",129) { tmpl_32px(829,73)      }          //NO AUTOCORRECT(AIRCRAFT)
+replacenew (OTTD_GUI, "gfx/GUI.png",93)  { tmpl_32px(1,109)       }          //DELETE TRAIN
+replacenew (OTTD_GUI, "gfx/GUI.png",105) { tmpl_32px(37,109)      }          //DELETE 1 TRAIN
+replacenew (OTTD_GUI, "gfx/GUI.png",97)  { tmpl_32px(73,109)      }          //DELETE ALL TRAIN
+replacenew (OTTD_GUI, "gfx/GUI.png",101) { tmpl_32px(109,109)     }          //AUTOCORRECT TRAIN
+replacenew (OTTD_GUI, "gfx/GUI.png",94)  { tmpl_32px(145,109)     }          //DELETE RV
+replacenew (OTTD_GUI, "gfx/GUI.png",98)  { tmpl_32px(181,109)     }          //DELETE ALL RV
+replacenew (OTTD_GUI, "gfx/GUI.png",102) { tmpl_32px(217,109)     }          //AUTOCORRECT RV
+replacenew (OTTD_GUI, "gfx/GUI.png",95)  { tmpl_32px(253,109)     }          //DELETE SHIP
+replacenew (OTTD_GUI, "gfx/GUI.png",99)  { tmpl_32px(289,109)     }          //DELETE ALL SHIP
+replacenew (OTTD_GUI, "gfx/GUI.png",103) { tmpl_32px(325,109)     }          //AUTOCORRECT SHIP
+replacenew (OTTD_GUI, "gfx/GUI.png",96)  { tmpl_32px(361,109)     }          //DELETE AIRCRAFT
+replacenew (OTTD_GUI, "gfx/GUI.png",100) { tmpl_32px(397,109)     }          //DELETE ALL AIRCRAFT
+replacenew (OTTD_GUI, "gfx/GUI.png",104) { tmpl_32px(433,109)     }          //AUTOCORRECT AIRCRAFT
+//************************ MENU LANDSCAPE *******************************
+replace    (695,   "gfx/GUI.png")        { tmpl_32px(1,145)       }          //TERRAFORM UP
+replace    (694,   "gfx/GUI.png")        { tmpl_32px(37,145)      }          //TERRAFORM DOWN
+replacenew (OTTD_GUI, "gfx/GUI.png",91)  { tmpl_32px(73,145)      }          //LEVEL LAND
+replace    (4082,  "gfx/GUI.png")        { tmpl_32px(109,145)     }          //LABEL
+replace    (4791,  "gfx/GUI.png")        { tmpl_32px(145,145)     }          //PURCHASE LAND
+replace    (703,   "gfx/GUI.png")        { tmpl_32px(181,145)     }          //DYNAMITE
+replace    (4084,  "gfx/GUI.png")        { tmpl_32px(217,145)     }          //STONES
+replace    (4086,  "gfx/GUI.png")        { tmpl_32px_A(253,145)   }          //OBJECTS
+replace    (714,   "gfx/GUI.png")        { tmpl_32px(289,145)     }          //BULLDOZER
+//************************ MENU RAIL *******************************
+replace    (1251,  "gfx/GUI.png")        { tmpl_32px(1,181)       }          //RAIL |
+replace    (1252,  "gfx/GUI.png")        { tmpl_32px(37,181)      }          //RAIL /
+replace    (1253,  "gfx/GUI.png")        { tmpl_32px(73,181)      }          //RAIL -
+replace    (1254,  "gfx/GUI.png")        { tmpl_32px(109,181)     }          //RAIL \
+replacenew (OTTD_GUI, "gfx/GUI.png",53)  { tmpl_32px(145,181)     }          //RAIL X
+replace    (1294,  "gfx/GUI.png")        { tmpl_32px(181,181)     }          //DEPOT RAIL
+replacenew (OTTD_GUI, "gfx/GUI.png",76)  { tmpl_32px(217,181)     }          //WAYPOINT
+replace    (1298,  "gfx/GUI.png")        { [253, 181, 64, 32, 0, 0] }        //STATION
+replace    (1291,  "gfx/GUI.png")        { tmpl_32px(325,181)     }          //TRAFFIC LIGHTS
+replace    (2430,  "gfx/GUI.png")        { tmpl_32px(361,181)     }          //TUNNEL
+replacenew (OTTD_GUI, "gfx/GUI.png",55)  { tmpl_32px(397,181)     }          //CONVERT RAIL
+//************************ MENU ELRL TYPE 0x5 *******************************
+replacenew (CATENARY, "gfx/GUI.png",36)  { tmpl_32px(433,181)     }          //ELRL |
+replacenew (CATENARY, "gfx/GUI.png",37)  { tmpl_32px(469,181)     }          //ELRL /
+replacenew (CATENARY, "gfx/GUI.png",38)  { tmpl_32px(505,181)     }          //ELRL -
+replacenew (CATENARY, "gfx/GUI.png",39)  { tmpl_32px(541,181)     }          //ELRL \
+replacenew (OTTD_GUI, "gfx/GUI.png",57)  { tmpl_32px(577,181)     }          //ELRL X
+replacenew (OTTD_GUI, "gfx/GUI.png",61)  { tmpl_32px(613,181)     }          //DEPOT ELRL
+replacenew (CATENARY, "gfx/GUI.png",44)  { tmpl_32px(649,181)     }          //TUNNEL ELRL
+replacenew (OTTD_GUI, "gfx/GUI.png",59)  { tmpl_32px(685,181)     }          //CONVERT ELRL
+//************************ MENU MONO *******************************
+replace    (1255,  "gfx/GUI.png")        { tmpl_32px(721,181)     }          //MONO |
+replace    (1256,  "gfx/GUI.png")        { tmpl_32px(757,181)     }          //MONO /
+replace    (1257,  "gfx/GUI.png")        { tmpl_32px(793,181)     }          //MONO -
+replace    (1258,  "gfx/GUI.png")        { tmpl_32px(829,181)     }          //MONO \
+replacenew (OTTD_GUI, "gfx/GUI.png",63)  { tmpl_32px(865,181)     }          //MONO X
+replacenew (OTTD_GUI, "gfx/GUI.png",67)  { tmpl_32px(901,181)     }          //DEPOT MONO
+replace    (2431,  "gfx/GUI.png")        { tmpl_32px(937,181)     }          //TUNNEL MONO
+replacenew (OTTD_GUI, "gfx/GUI.png",65)  { tmpl_32px(1,217)       }          //CONVERT MONO
+//************************ MENU MGLV *******************************
+replace    (1259,  "gfx/GUI.png")        { tmpl_32px(37,217)      }          //MGLV |
+replace    (1260,  "gfx/GUI.png")        { tmpl_32px(73,217)      }          //MGLV /
+replace    (1262,  "gfx/GUI.png")        { tmpl_32px(109,217)     }          //MGLV -
+replace    (1261,  "gfx/GUI.png")        { tmpl_32px(145,217)     }          //MGLV \
+replacenew (OTTD_GUI, "gfx/GUI.png",69)  { tmpl_32px(181,217)     }          //MGLV X
+replacenew (OTTD_GUI, "gfx/GUI.png",73)  { tmpl_32px(217,217)     }          //DEPOT MGLV
+replace    (2432,  "gfx/GUI.png")        { tmpl_32px(253,217)     }          //TUNNEL MGLV
+replacenew (OTTD_GUI, "gfx/GUI.png",71)  { tmpl_32px(289,217)     }          //CONVERT MGLV
+//************************ MENU ROAD *******************************
+replace    (1310,  "gfx/GUI.png")        { tmpl_32px(325,217)     }          //ROAD /
+replace    (1309,  "gfx/GUI.png")        { tmpl_32px(361,217)     }          //ROAD \
+replacenew (OTTD_GUI, "gfx/GUI.png",82)  { tmpl_32px(397,217)     }          //ROAD X
+replace    (1295,  "gfx/GUI.png")        { tmpl_32px(433,217)     }          //DEPOT ROAD
+replace    (749,   "gfx/GUI.png")        { tmpl_32px(469,217)     }          //BUS STATION
+replace    (750,   "gfx/GUI.png")        { tmpl_32px(505,217)     }          //LORRY TERMINAL
+replacenew (OTTD_GUI, "gfx/GUI.png",134) { tmpl_32px(541,217)     }          //ONE-WAY
+replace    (2429,  "gfx/GUI.png")        { tmpl_32px(577,217)     }          //TUNNEL ROAD
+replacenew (OTTD_GUI, "gfx/GUI.png",180) { tmpl_32px(613,217)     }          //CONVERT ROAD
+//************************ MENU TRAMWAY 0xB *******************************
+replacenew (TRAMWAY,  "gfx/GUI.png",1)   { tmpl_32px(649,217)     }          //TRAMWAY /
+replacenew (TRAMWAY,  "gfx/GUI.png",0)   { tmpl_32px(685,217)     }          //TRAMWAY \
+replacenew (OTTD_GUI, "gfx/GUI.png",84)  { tmpl_32px(721,217)     }          //TRAMWAY X
+replacenew (OTTD_GUI, "gfx/GUI.png",182) { tmpl_32px(757,217)     }          //CONVERT TRAMWAY
+//************************ MENU WATERWAY 0x8 *******************************
+replacenew (OTTD_GUI, "gfx/GUI.png",88)  { tmpl_32px_A(793,217)   }          //CHANNEL
+replacenew (CANALS,   "gfx/GUI.png",64)  { tmpl_32px_A(829,217)   }          //GATEWAY
+replacenew (OTTD_GUI, "gfx/GUI.png",136) { tmpl_32px_A(865,217)   }          //RIVER
+replace    (748,   "gfx/GUI.png")        { tmpl_32px_A(901,217)   }          //DEPOT SHIP
+replace    (746,   "gfx/GUI.png")        { tmpl_32px(937,217)     }          //PORT
+replace    (693,   "gfx/GUI.png")        { tmpl_32px_A(1,253)     }          //BUOY
+replacenew (OTTD_GUI, "gfx/GUI.png",145) { tmpl_32px_A(37,253)    }          //AQUEDUCT
+//************************ MENU AIRPORT *******************************
+replace    (744,   "gfx/GUI.png")        { tmpl_32px_A(73,253)    }          //AIRPORT
+//************************ MENU BRIDGE *******************************
+if (param_bridge_icon !=1) {
+replace    (2596,  "gfx/GUI.png")        { tmpl_50x32px(145,253)  }          //WOODEN BGIDGE
+replace    (2598,  "gfx/GUI.png")        { tmpl_50x32px(217,253)  }          //CONCRETE BGIDGE
+replace    (2597,  "gfx/GUI.png")        { tmpl_50x32px(289,253)  }          //GIRDER, STEEL BGIDGE
+replace    (2599,  "gfx/GUI.png")        { tmpl_50x32px(361,253)  }          //GIRDER, STEEL BGIDGE
+replace    (2594,  "gfx/GUI.png")        { tmpl_50x32px(433,253)  }          //SUSPENSION BGIDGE
+replace    (2595,  "gfx/GUI.png")        { tmpl_50x32px(505,253)  }          //CANTILEVER BGIDGE
+replace    (2600,  "gfx/GUI.png")        { tmpl_50x32px(577,253)  }          //TUBULAR BGIDGE
+}
+//************************ MENU MUSICS *******************************
+replace    (709,   "gfx/GUI.png")        { tmpl_32px(649,253)     }          //|◄◄
+replace    (710,   "gfx/GUI.png")        { tmpl_32px(685,253)     }          //►►|
+replace    (711,   "gfx/GUI.png")        { tmpl_32px(721,253)     }          //STOP
+replace    (712,   "gfx/GUI.png")        { tmpl_32px(757,253)     }          //►
+replacenew (OTTD_GUI, "gfx/GUI.png",150) { tmpl_32px(793,253)     }          //◄
+//************************ TRANSPORT VIEW *******************************
+replace    (685,   "gfx/GUI.png")        { tmpl_26px(1,325)       }          //GOTO DEPOT TRAIN
+replace    (686,   "gfx/GUI.png")        { tmpl_26px(30,325)      }          //GOTO DEPOT RV
+replace    (687,   "gfx/GUI.png")        { tmpl_26px(59,325)      }          //GOTO DEPOT AIRCRAFT
+replace    (688,   "gfx/GUI.png")        { tmpl_26px(88,325)      }          //GOTO DEPOT SHIP
+replace    (689,   "gfx/GUI.png")        { tmpl_26px(117,325)     }          //GOTO RED TRAFFIC LIGHTS
+replace    (690,   "gfx/GUI.png")        { tmpl_26px(146,325)     }          //GOTO
+replace    (691,   "gfx/GUI.png")        { tmpl_26px(175,325)     }          //INFO TRANSPORT
+replace    (692,   "gfx/GUI.png")        { tmpl_26px(204,325)     }          //CONVERSION CARGO
+replace    (715,   "gfx/GUI.png")        { tmpl_26px(233,325)     }          //TURN AROUND
+replacenew (OTTD_GUI, "gfx/GUI.png",106) { tmpl_26px(262,325)     }          //COPY TRAIN
+replacenew (OTTD_GUI, "gfx/GUI.png",107) { tmpl_26px(291,325)     }          //COPY RV
+replacenew (OTTD_GUI, "gfx/GUI.png",108) { tmpl_26px(320,325)     }          //COPY SHIP
+replacenew (OTTD_GUI, "gfx/GUI.png",109) { tmpl_26px(349,325)     }          //COPY AIRCRAFT
+//************************ CURSORS *******************************
+replace    (0,     "gfx/GUI.png")        { tmpl_cursor(1,354)     }          //CURSOR
+replace    (1,     "gfx/GUI.png")        { tmpl_cursor(34,354)    }          //ZZZZ
+replace    (696,   "gfx/GUI.png")        { tmpl_cursor(67,354)    }          //CURSOR UP 1
+replace    (697,   "gfx/GUI.png")        { tmpl_cursor(100,354)   }          //CURSOR UP 2
+replace    (698,   "gfx/GUI.png")        { tmpl_cursor(133,354)   }          //CURSOR UP 3
+replace    (699,   "gfx/GUI.png")        { tmpl_cursor(166,354)   }          //CURSOR DOWN 1
+replace    (700,   "gfx/GUI.png")        { tmpl_cursor(199,354)   }          //CURSOR DOWN 2
+replace    (701,   "gfx/GUI.png")        { tmpl_cursor(232,354)   }          //CURSOR DOWN 3
+replace    (702,   "gfx/GUI.png")        { tmpl_cursor(265,354)   }          //CURSOR BUOY
+replace    (704,   "gfx/GUI.png")        { tmpl_cursor(298,354)   }          //CURSOR DYNAMITE 1
+replace    (705,   "gfx/GUI.png")        { tmpl_cursor(331,354)   }          //CURSOR DYNAMITE 2
+replace    (706,   "gfx/GUI.png")        { tmpl_cursor(364,354)   }          //CURSOR DYNAMITE 3
+replace    (707,   "gfx/GUI.png")        { tmpl_cursor(397,354)   }          //CURSOR DYNAMITE 4
+replace    (716,   "gfx/GUI.png")        { tmpl_cursor(430,354)   }          //CURSOR GOTO 1
+replace    (717,   "gfx/GUI.png")        { tmpl_cursor(463,354)   }          //CURSOR GOTO 2
+replace    (718,   "gfx/GUI.png")        { tmpl_cursor(496,354)   }          //CURSOR GOTO 3
+replace    (719,   "gfx/GUI.png")        { tmpl_cursor(529,354)   }          //CURSOR INFO
+replace    (720,   "gfx/GUI.png")        { tmpl_cursor(562,354)   }          //CURSOR BUILD HQ
+replace    (721,   "gfx/GUI.png")        { tmpl_cursor(595,354)   }          //CURSOR DEPOT SHIP
+replace    (722,   "gfx/GUI.png")        { tmpl_cursor(628,354)   }          //CURSOR LABEL
+//************************ CURSORS RAIL *******************************
+replace    (1263,  "gfx/GUI.png")        { tmpl_cursor(661,354)   }          //CURSOR RAIL |
+replace    (1264,  "gfx/GUI.png")        { tmpl_cursor(694,354)   }          //CURSOR RAIL /
+replace    (1265,  "gfx/GUI.png")        { tmpl_cursor(727,354)   }          //CURSOR RAIL -
+replace    (1266,  "gfx/GUI.png")        { tmpl_cursor(760,354)   }          //CURSOR RAIL \
+replacenew (OTTD_GUI, "gfx/GUI.png",54)  { tmpl_cursor(793,354)   }          //CURSOR RAIL X
+replacenew (OTTD_GUI, "gfx/GUI.png",56)  { tmpl_cursor(826,354)   }          //CURSOR RAIL CONVERT
+replace    (1296,  "gfx/GUI.png")        { tmpl_cursor(859,354)   }          //CURSOR RAIL DEPOT
+replace    (2434,  "gfx/GUI.png")        { tmpl_cursor(892,354)   }          //CURSOR RAIL TUNNEL
+replacenew (CATENARY, "gfx/GUI.png",40)  { tmpl_cursor(925,354)   }          //CURSOR ELRL |
+replacenew (CATENARY, "gfx/GUI.png",41)  { tmpl_cursor(1,393)     }          //CURSOR ELRL /
+replacenew (CATENARY, "gfx/GUI.png",42)  { tmpl_cursor(34,393)    }          //CURSOR ELRL -
+replacenew (CATENARY, "gfx/GUI.png",43)  { tmpl_cursor(67,393)    }          //CURSOR ELRL \
+replacenew (OTTD_GUI, "gfx/GUI.png",58)  { tmpl_cursor(100,393)   }          //CURSOR ELRL X
+replacenew (OTTD_GUI, "gfx/GUI.png",60)  { tmpl_cursor(133,393)   }          //CURSOR ELRL CONVERT
+replacenew (OTTD_GUI, "gfx/GUI.png",62)  { tmpl_cursor(166,393)   }          //CURSOR ELRL DEPOT
+replacenew (CATENARY, "gfx/GUI.png",45)  { tmpl_cursor(199,393)   }          //CURSOR ELRL TUNNEL
+replace    (1267,  "gfx/GUI.png")        { tmpl_cursor(232,393)   }          //CURSOR MONO |
+replace    (1268,  "gfx/GUI.png")        { tmpl_cursor(265,393)   }          //CURSOR MONO /
+replace    (1269,  "gfx/GUI.png")        { tmpl_cursor(298,393)   }          //CURSOR MONO -
+replace    (1270,  "gfx/GUI.png")        { tmpl_cursor(331,393)   }          //CURSOR MONO \
+replacenew (OTTD_GUI, "gfx/GUI.png",64)  { tmpl_cursor(364,393)   }          //CURSOR MONO X
+replacenew (OTTD_GUI, "gfx/GUI.png",66)  { tmpl_cursor(397,393)   }          //CURSOR MONO CONVERT
+replacenew (OTTD_GUI, "gfx/GUI.png",68)  { tmpl_cursor(430,393)   }          //CURSOR MONO DEPOT
+replace    (2435,  "gfx/GUI.png")        { tmpl_cursor(463,393)   }          //CURSOR MONO TUNNEL
+replace    (1271,  "gfx/GUI.png")        { tmpl_cursor(496,393)   }          //CURSOR MGLV |
+replace    (1272,  "gfx/GUI.png")        { tmpl_cursor(529,393)   }          //CURSOR MGLV /
+replace    (1273,  "gfx/GUI.png")        { tmpl_cursor(562,393)   }          //CURSOR MGLV -
+replace    (1274,  "gfx/GUI.png")        { tmpl_cursor(595,393)   }          //CURSOR MGLV \
+replacenew (OTTD_GUI, "gfx/GUI.png",70)  { tmpl_cursor(628,393)   }          //CURSOR MGLV X
+replacenew (OTTD_GUI, "gfx/GUI.png",72)  { tmpl_cursor(661,393)   }          //CURSOR MGLV CONVERT
+replacenew (OTTD_GUI, "gfx/GUI.png",74)  { tmpl_cursor(694,393)   }          //CURSOR MGLV DEPOT
+replace    (2436,  "gfx/GUI.png")        { tmpl_cursor(727,393)   }          //CURSOR MGLV TUNNEL
+replace    (1292,  "gfx/GUI.png")        { tmpl_cursor(760,393)   }          //CURSOR TRAFFIC LIGHTS 1
+replace    (1293,  "gfx/GUI.png")        { tmpl_cursor(793,393)   }          //CURSOR TRAFFIC LIGHTS 2
+replace    (1300,  "gfx/GUI.png")        { tmpl_cursor(826,393)   }          //CURSOR RAIL STATION
+replacenew (OTTD_GUI, "gfx/GUI.png",77)  { tmpl_cursor(859,393)   }          //CURSOR WAYPOINT
+replace    (2593,  "gfx/GUI.png")        { [892, 393, 36, 36, 0, 0] }        //CURSOR BRIDGE
+//************************ CURSORS ROAD AND TRAMWAY *******************************
+replace    (1312,  "gfx/GUI.png")        { tmpl_cursor(1,432)     }          //CURSOR ROAD /
+replace    (1311,  "gfx/GUI.png")        { tmpl_cursor(34,432)    }          //CURSOR ROAD \
+replacenew (OTTD_GUI, "gfx/GUI.png",83)  { tmpl_cursor(67,432)    }          //CURSOR ROAD X
+replacenew (OTTD_GUI, "gfx/GUI.png",181) { tmpl_cursor(100,432)   }          //CURSOR ROAD CONVERT
+replace    (1297,  "gfx/GUI.png")        { tmpl_cursor(133,432)   }          //CURSOR ROAD DEPOT
+replace    (2433,  "gfx/GUI.png")        { tmpl_cursor(166,432)   }          //CURSOR ROAD TUNNEL
+replace    (2725,  "gfx/GUI.png")        { tmpl_cursor(199,432)   }          //CURSOR BUS STATION
+replace    (2726,  "gfx/GUI.png")        { tmpl_cursor(232,432)   }          //CURSOR LORRY TERMINAL
+replacenew (TRAMWAY, "gfx/GUI.png",3)    { tmpl_cursor(265,432)   }          //CURSOR TRAMWAY /
+replacenew (TRAMWAY, "gfx/GUI.png",2)    { tmpl_cursor(298,432)   }          //CURSOR TRAMWAY \
+replacenew (OTTD_GUI, "gfx/GUI.png",85)  { tmpl_cursor(331,432)   }          //CURSOR TRAMWAY X
+replacenew (OTTD_GUI, "gfx/GUI.png",183) { tmpl_cursor(364,432)   }          //CURSOR TRAMWAY CONVERT
+//************************ CURSORS WATERWAY AND AIRPORT *******************************
+replacenew (OTTD_GUI, "gfx/GUI.png",89)  { tmpl_cursor(397,432)   }          //CURSOR CHANNEL
+replacenew (OTTD_GUI, "gfx/GUI.png",87)  { tmpl_cursor(430,432)   }          //CURSOR GATEWAY
+replacenew (OTTD_GUI, "gfx/GUI.png",137) { tmpl_cursor(463,432)   }          //CURSOR RIVER
+replace    (3668,  "gfx/GUI.png")        { tmpl_cursor(496,432)   }          //CURSOR PORT
+replacenew (OTTD_GUI, "gfx/GUI.png",146) { tmpl_cursor(529,432)   }          //CURSOR AQUEDUCT
+replace    (2724,  "gfx/GUI.png")        { tmpl_cursor(562,432)   }          //CURSOR AIRPORT
+//************************ CURSORS COPY TRANSPORT *******************************
+replacenew (OTTD_GUI, "gfx/GUI.png",110) { tmpl_cursor(595,432)   }          //CURSOR COPY TRAIN
+replacenew (OTTD_GUI, "gfx/GUI.png",111) { tmpl_cursor(628,432)   }          //CURSOR COPY RV
+replacenew (OTTD_GUI, "gfx/GUI.png",112) { tmpl_cursor(661,432)   }          //CURSOR COPY SHIP
+replacenew (OTTD_GUI, "gfx/GUI.png",113) { tmpl_cursor(694,432)   }          //CURSOR COPY AIRCRAFT
+//************************ CURSORS OTHER *******************************
+replace    (2010,  "gfx/GUI.png")        { tmpl_cursor(727,432)   }          //CURSOR TREES
+replace    (4080,  "gfx/GUI.png")        { tmpl_cursor(760,432)   }          //CURSOR CITY
+replace    (4081,  "gfx/GUI.png")        { tmpl_cursor(793,432)   }          //CURSOR INDUSTRIAL
+replace    (4087,  "gfx/GUI.png")        { tmpl_cursor(826,432)   }          //CURSOR STONES
+replace    (4089,  "gfx/GUI.png")        { tmpl_cursor(892,432)   }          //CURSOR OBJECTS
+replacenew (OTTD_GUI, "gfx/GUI.png",92)  { tmpl_cursor(925,432)   }          //CURSOR LEVEL LAND
+replace    (4792,  "gfx/GUI.png")        { tmpl_cursor(1,471)     }          //CURSOR PURCHASE LAND
+//************************ MISCELLANEOUS 20PX *******************************
+replace    (143,   "gfx/GUI.png")        { tmpl_20px(1,510)       }          //CLOSE
+replacenew (OTTD_GUI, "gfx/GUI.png",184) { tmpl_20px(24,510)      }          //RENAME
+replace    (682,   "gfx/GUI.png")        { tmpl_20px(47,510)      }          //LARGE/SMALL
+replacenew (OTTD_GUI, "gfx/GUI.png",185) { tmpl_20px(70,510)      }          //POINT
+replacenew (OTTD_GUI, "gfx/GUI.png",151) { tmpl_20px(93,510)      }          //COLLAPSE ▲
+replacenew (OTTD_GUI, "gfx/GUI.png",152) { tmpl_20px(116,510)     }          //EXPAND ▼
+replacenew (OTTD_GUI, "gfx/GUI.png",168) { tmpl_20px(139,510)     }          //CHANGING THE WINDOW SIZE •
+replacenew (OTTD_GUI, "gfx/GUI.png",51)  { tmpl_20px(162,510)     }          //FASTEN
+replacenew (OTTD_GUI, "gfx/GUI.png",52)  { tmpl_20px(185,510)     }          //DETACH
+replacenew (OTTD_GUI, "gfx/GUI.png",153) { tmpl_20px(208,510)     }          //BEETLE
+replacenew (OTTD_GUI, "gfx/GUI.png",49)  { tmpl_20px(231,510)     }          //HOUSE
+replacenew (OTTD_GUI, "gfx/GUI.png",50)  { tmpl_20px(254,510)     }          //LIST
+replacenew (OTTD_GUI, "gfx/GUI.png",38)  { tmpl_20px(277,510)     }          //BOX
+replacenew (OTTD_GUI, "gfx/GUI.png",39)  { tmpl_20px(300,510)     }          //CIRCLE
+replacenew (OTTD_GUI, "gfx/GUI.png",40)  { tmpl_20px(323,510)     }          //LOCK
+replacenew (OTTD_GUI, "gfx/GUI.png",41)  { tmpl_20px(346,510)     }          //EMPTY SQUARE
+replacenew (OTTD_GUI, "gfx/GUI.png",42)  { tmpl_20px(369,510)     }          //SELECT AN EMPTY SQUARE
+replacenew (OTTD_GUI, "gfx/GUI.png",43)  { tmpl_20px(392,510)     }          //WARNING
+replacenew (OTTD_GUI, "gfx/GUI.png",138) { tmpl_20px(415,510)     }          //ARROW LEFT
+replacenew (OTTD_GUI, "gfx/GUI.png",139) { tmpl_20px(438,510)     }          //ARROW RIGHT
+replacenew (OTTD_GUI, "gfx/GUI.png",140) { tmpl_20px(461,510)     }          //ARROW DOWN
+replacenew (OTTD_GUI, "gfx/GUI.png",141) { tmpl_20px(484,510)     }          //ARROW UP
+replacenew (OTTD_GUI, "gfx/GUI.png",142) { tmpl_20px(507,510)     }          //ARROW LEFT
+replacenew (OTTD_GUI, "gfx/GUI.png",143) { tmpl_20px(530,510)     }          //COMMAND SYMBOL
+replacenew (OTTD_GUI, "gfx/GUI.png",159) { tmpl_20px(553,510)     }          //LIDER
+//************************ MISCELLANEOUS 16PX *******************************
+replace    (747,   "gfx/GUI.png")        {[1, 533, 18, 14, 0, 1]  }          //COLOUR COMPANY
+replace    (3090,  "gfx/GUI.png")        { tmpl_16px(24,533)      }          //STOP
+replace    (3091,  "gfx/GUI.png")        { tmpl_16px(43,533)      }          //GO TO
+replacenew (OTTD_GUI, "gfx/GUI.png",147) {[62, 533, 13, 13, 0, 2] }          // +
+replacenew (OTTD_GUI, "gfx/GUI.png",148) {[81, 533, 13, 13, 0, 2] }          // -
+replacenew (OTTD_GUI, "gfx/GUI.png",154) { tmpl_16px(100,533)     }          //GRAY    (INACTIVE)
+replacenew (OTTD_GUI, "gfx/GUI.png",155) { tmpl_16px(119,533)     }          //RED     (UNPROFITABLE)
+replacenew (OTTD_GUI, "gfx/GUI.png",156) { tmpl_16px(138,533)     }          //YELLOW  (LOW-PROFIT)
+replacenew (OTTD_GUI, "gfx/GUI.png",157) { tmpl_16px(157,533)     }          //GREEN   (PROFITABLE)
+replacenew (OTTD_GUI, "gfx/GUI.png",158) { tmpl_16px(176,533)     }          //NEWS
+replacenew (OTTD_GUI, "gfx/GUI.png",160) { tmpl_16px(195,533)     }          //PROTECTION
+replacenew (OTTD_GUI, "gfx/GUI.png",161) { tmpl_16px(214,533)     }          //UP
+replacenew (OTTD_GUI, "gfx/GUI.png",162) { tmpl_16px(233,533)     }          //CIRCLE GRAY   (NEUTRAL)
+replacenew (OTTD_GUI, "gfx/GUI.png",163) { tmpl_16px(252,533)     }          //CIRCLE RED    (POOR)
+replacenew (OTTD_GUI, "gfx/GUI.png",164) { tmpl_16px(271,533)     }          //CIRCLE YELLOW (TOLERABLE)
+replacenew (OTTD_GUI, "gfx/GUI.png",165) { tmpl_16px(290,533)     }          //CIRCLE GREEN  (GOOD)
+replacenew (OTTD_GUI, "gfx/GUI.png",45)  {[309, 533, 15, 9, 0, 0] }          //▼
+replacenew (OTTD_GUI, "gfx/GUI.png",46)  {[328, 533, 15, 9, 0, 0] }          //▲
+replacenew (OTTD_GUI, "gfx/GUI.png",47)  {[347, 533, 9, 15, 0, 0] }          //◄
+replacenew (OTTD_GUI, "gfx/GUI.png",48)  {[366, 533, 9, 15, 0, 0] }          //►
+replacenew (OTTD_GUI, "gfx/GUI.png",44)  { tmpl_16px(385,533)     }          //WINDOWS SIZE CHANGES #1
+replacenew (OTTD_GUI, "gfx/GUI.png",149) { tmpl_16px(404,533)     }          //WINDOWS SIZE CHANGES #2
+replacenew (OTTD_GUI, "gfx/GUI.png",166) {[423, 533, 26, 16, 0, 0]}          //← (BACKSPACE)
+replacenew (OTTD_GUI, "gfx/GUI.png",167) {[461, 533, 26, 16, 0, 0]}          //→ (BACKSPACE)
+replacenew (OTTD_GUI, "gfx/GUI.png",186) {[518, 533, 20, 16, 0, 0]}          //MESSAGE
+replacenew (OTTD_GUI, "gfx/GUI.png",187) {[556, 533, 16, 16, 0, 0]}          //ADMINISTRATIVE ACTION
+replacenew (OTTD_GUI, "gfx/GUI.png",188) {[575, 533, 20, 16, 0, 0]}          //JOIN THIS COMPANY
+replacenew (OTTD_GUI, "gfx/GUI.png",189) {[613, 533, 16, 16, 0, 0]}          //PERSONAL
+replace    ( 150,  "gfx/GUI.png")        {tmpl_16px(803,533)      }          // {TRAIN}
+replace    ( 151,  "gfx/GUI.png")        {tmpl_16px(822,533)      }          // {LORRY}
+replace    ( 152,  "gfx/GUI.png")        {tmpl_16px(841,533)      }          // {BUS}
+replace    ( 153,  "gfx/GUI.png")        {tmpl_16px(860,533)      }          // {PLANE}
+replace    ( 154,  "gfx/GUI.png")        {tmpl_16px(879,533)      }          // {SHIP}
+//************************ *** *******************************
+
+
+
+
