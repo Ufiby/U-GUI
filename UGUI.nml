@@ -3,8 +3,8 @@ grf {
     name: string(STR_GRF_NAME);
     desc: string(STR_GRF_DESCRIPTION);
     url:  string(STR_GRF_URL);
-    version: 50;
-    min_compatible_version: 40;
+    version: 220;
+    min_compatible_version: 100;
   param 0 {
   param_bridge_icon {
    type: bool;
@@ -15,7 +15,7 @@ grf {
   }
  }
 
-if (ttd_platform != PLATFORM_OPENTTD || (openttd_version < version_openttd(14, 0))) {
+if (ttd_platform != PLATFORM_OPENTTD || (openttd_version < version_openttd(15, 0))) {
     error(FATAL, REQUIRES_OPENTTD, string(STR_OPENTTD_VERSION));
     }
 //==================================================================================================================================
@@ -215,97 +215,97 @@ replacenew (OTTD_GUI, "gfx/GUI.png",107) { tmpl_26px(291,325)     }          //C
 replacenew (OTTD_GUI, "gfx/GUI.png",108) { tmpl_26px(320,325)     }          //COPY SHIP
 replacenew (OTTD_GUI, "gfx/GUI.png",109) { tmpl_26px(349,325)     }          //COPY AIRCRAFT
 //************************ CURSORS *******************************
-replace    (0,     "gfx/GUI.png")        { tmpl_cursor(1,354)     }          //CURSOR
-replace    (1,     "gfx/GUI.png")        { tmpl_cursor(34,354)    }          //ZZZZ
-replace    (696,   "gfx/GUI.png")        { tmpl_cursor(67,354)    }          //CURSOR UP 1
-replace    (697,   "gfx/GUI.png")        { tmpl_cursor(100,354)   }          //CURSOR UP 2
-replace    (698,   "gfx/GUI.png")        { tmpl_cursor(133,354)   }          //CURSOR UP 3
-replace    (699,   "gfx/GUI.png")        { tmpl_cursor(166,354)   }          //CURSOR DOWN 1
-replace    (700,   "gfx/GUI.png")        { tmpl_cursor(199,354)   }          //CURSOR DOWN 2
-replace    (701,   "gfx/GUI.png")        { tmpl_cursor(232,354)   }          //CURSOR DOWN 3
-replace    (702,   "gfx/GUI.png")        { tmpl_cursor(265,354)   }          //CURSOR BUOY
-replace    (704,   "gfx/GUI.png")        { tmpl_cursor(298,354)   }          //CURSOR DYNAMITE 1
-replace    (705,   "gfx/GUI.png")        { tmpl_cursor(331,354)   }          //CURSOR DYNAMITE 2
-replace    (706,   "gfx/GUI.png")        { tmpl_cursor(364,354)   }          //CURSOR DYNAMITE 3
-replace    (707,   "gfx/GUI.png")        { tmpl_cursor(397,354)   }          //CURSOR DYNAMITE 4
-replace    (716,   "gfx/GUI.png")        { tmpl_cursor(430,354)   }          //CURSOR GOTO 1
-replace    (717,   "gfx/GUI.png")        { tmpl_cursor(463,354)   }          //CURSOR GOTO 2
-replace    (718,   "gfx/GUI.png")        { tmpl_cursor(496,354)   }          //CURSOR GOTO 3
-replace    (719,   "gfx/GUI.png")        { tmpl_cursor(529,354)   }          //CURSOR INFO
-replace    (720,   "gfx/GUI.png")        { tmpl_cursor(562,354)   }          //CURSOR BUILD HQ
-replace    (721,   "gfx/GUI.png")        { tmpl_cursor(595,354)   }          //CURSOR DEPOT SHIP
-replace    (722,   "gfx/GUI.png")        { tmpl_cursor(628,354)   }          //CURSOR LABEL
+replace    (0,        "gfx/GUI.png")     {[  1, 354, 22, 22, 0, 0]}          //CURSOR
+replace    (1,        "gfx/GUI.png")     {[ 42, 354, 28, 25, 0, 0]}          //ZZZZ
+replace    (696,      "gfx/GUI.png")     { tmpl_cursor( 83,354)   }          //CURSOR UP 1
+replace    (697,      "gfx/GUI.png")     { tmpl_cursor(124,354)   }          //CURSOR UP 2
+replace    (698,      "gfx/GUI.png")     { tmpl_cursor(165,354)   }          //CURSOR UP 3
+replace    (699,      "gfx/GUI.png")     { tmpl_cursor(206,354)   }          //CURSOR DOWN 1
+replace    (700,      "gfx/GUI.png")     { tmpl_cursor(247,354)   }          //CURSOR DOWN 2
+replace    (701,      "gfx/GUI.png")     { tmpl_cursor(288,354)   }          //CURSOR DOWN 3
+replace    (702,      "gfx/GUI.png")     { tmpl_cursor(329,354)   }          //CURSOR BUOY
+replace    (704,      "gfx/GUI.png")     { tmpl_cursor(370,354)   }          //CURSOR DYNAMITE 1
+replace    (705,      "gfx/GUI.png")     { tmpl_cursor(411,354)   }          //CURSOR DYNAMITE 2
+replace    (706,      "gfx/GUI.png")     { tmpl_cursor(452,354)   }          //CURSOR DYNAMITE 3
+replace    (707,      "gfx/GUI.png")     { tmpl_cursor(493,354)   }          //CURSOR DYNAMITE 4
+replace    (716,      "gfx/GUI.png")     { tmpl_cursor(534,354)   }          //CURSOR GOTO 1
+replace    (717,      "gfx/GUI.png")     { tmpl_cursor(575,354)   }          //CURSOR GOTO 2
+replace    (718,      "gfx/GUI.png")     { tmpl_cursor(616,354)   }          //CURSOR GOTO 3
+replace    (719,      "gfx/GUI.png")     { tmpl_cursor(657,354)   }          //CURSOR INFO
+replace    (720,      "gfx/GUI.png")     { tmpl_cursor(698,354)   }          //CURSOR BUILD HQ
+replace    (721,      "gfx/GUI.png")     { tmpl_cursor(739,354)   }          //CURSOR DEPOT SHIP
+replace    (722,      "gfx/GUI.png")     { tmpl_cursor(780,354)   }          //CURSOR LABEL
 //************************ CURSORS RAIL *******************************
-replace    (1263,  "gfx/GUI.png")        { tmpl_cursor(661,354)   }          //CURSOR RAIL |
-replace    (1264,  "gfx/GUI.png")        { tmpl_cursor(694,354)   }          //CURSOR RAIL /
-replace    (1265,  "gfx/GUI.png")        { tmpl_cursor(727,354)   }          //CURSOR RAIL -
-replace    (1266,  "gfx/GUI.png")        { tmpl_cursor(760,354)   }          //CURSOR RAIL \
-replacenew (OTTD_GUI, "gfx/GUI.png",54)  { tmpl_cursor(793,354)   }          //CURSOR RAIL X
-replacenew (OTTD_GUI, "gfx/GUI.png",56)  { tmpl_cursor(826,354)   }          //CURSOR RAIL CONVERT
-replace    (1296,  "gfx/GUI.png")        { tmpl_cursor(859,354)   }          //CURSOR RAIL DEPOT
-replace    (2434,  "gfx/GUI.png")        { tmpl_cursor(892,354)   }          //CURSOR RAIL TUNNEL
-replacenew (CATENARY, "gfx/GUI.png",40)  { tmpl_cursor(925,354)   }          //CURSOR ELRL |
-replacenew (CATENARY, "gfx/GUI.png",41)  { tmpl_cursor(1,393)     }          //CURSOR ELRL /
-replacenew (CATENARY, "gfx/GUI.png",42)  { tmpl_cursor(34,393)    }          //CURSOR ELRL -
-replacenew (CATENARY, "gfx/GUI.png",43)  { tmpl_cursor(67,393)    }          //CURSOR ELRL \
-replacenew (OTTD_GUI, "gfx/GUI.png",58)  { tmpl_cursor(100,393)   }          //CURSOR ELRL X
-replacenew (OTTD_GUI, "gfx/GUI.png",60)  { tmpl_cursor(133,393)   }          //CURSOR ELRL CONVERT
-replacenew (OTTD_GUI, "gfx/GUI.png",62)  { tmpl_cursor(166,393)   }          //CURSOR ELRL DEPOT
-replacenew (CATENARY, "gfx/GUI.png",45)  { tmpl_cursor(199,393)   }          //CURSOR ELRL TUNNEL
-replace    (1267,  "gfx/GUI.png")        { tmpl_cursor(232,393)   }          //CURSOR MONO |
-replace    (1268,  "gfx/GUI.png")        { tmpl_cursor(265,393)   }          //CURSOR MONO /
-replace    (1269,  "gfx/GUI.png")        { tmpl_cursor(298,393)   }          //CURSOR MONO -
-replace    (1270,  "gfx/GUI.png")        { tmpl_cursor(331,393)   }          //CURSOR MONO \
-replacenew (OTTD_GUI, "gfx/GUI.png",64)  { tmpl_cursor(364,393)   }          //CURSOR MONO X
-replacenew (OTTD_GUI, "gfx/GUI.png",66)  { tmpl_cursor(397,393)   }          //CURSOR MONO CONVERT
-replacenew (OTTD_GUI, "gfx/GUI.png",68)  { tmpl_cursor(430,393)   }          //CURSOR MONO DEPOT
-replace    (2435,  "gfx/GUI.png")        { tmpl_cursor(463,393)   }          //CURSOR MONO TUNNEL
-replace    (1271,  "gfx/GUI.png")        { tmpl_cursor(496,393)   }          //CURSOR MGLV |
-replace    (1272,  "gfx/GUI.png")        { tmpl_cursor(529,393)   }          //CURSOR MGLV /
-replace    (1273,  "gfx/GUI.png")        { tmpl_cursor(562,393)   }          //CURSOR MGLV -
-replace    (1274,  "gfx/GUI.png")        { tmpl_cursor(595,393)   }          //CURSOR MGLV \
-replacenew (OTTD_GUI, "gfx/GUI.png",70)  { tmpl_cursor(628,393)   }          //CURSOR MGLV X
-replacenew (OTTD_GUI, "gfx/GUI.png",72)  { tmpl_cursor(661,393)   }          //CURSOR MGLV CONVERT
-replacenew (OTTD_GUI, "gfx/GUI.png",74)  { tmpl_cursor(694,393)   }          //CURSOR MGLV DEPOT
-replace    (2436,  "gfx/GUI.png")        { tmpl_cursor(727,393)   }          //CURSOR MGLV TUNNEL
-replace    (1292,  "gfx/GUI.png")        { tmpl_cursor(760,393)   }          //CURSOR TRAFFIC LIGHTS 1
-replace    (1293,  "gfx/GUI.png")        { tmpl_cursor(793,393)   }          //CURSOR TRAFFIC LIGHTS 2
-replace    (1300,  "gfx/GUI.png")        { tmpl_cursor(826,393)   }          //CURSOR RAIL STATION
-replacenew (OTTD_GUI, "gfx/GUI.png",77)  { tmpl_cursor(859,393)   }          //CURSOR WAYPOINT
-replace    (2593,  "gfx/GUI.png")        { [892, 393, 36, 36, 0, 0] }        //CURSOR BRIDGE
+replace    (1263,     "gfx/GUI.png")     { tmpl_cursor(821,354)   }          //CURSOR RAIL |
+replace    (1264,     "gfx/GUI.png")     { tmpl_cursor(862,354)   }          //CURSOR RAIL /
+replace    (1265,     "gfx/GUI.png")     { tmpl_cursor(903,354)   }          //CURSOR RAIL -
+replace    (1266,     "gfx/GUI.png")     { tmpl_cursor(  1,389)   }          //CURSOR RAIL \
+replacenew (OTTD_GUI, "gfx/GUI.png",54)  { tmpl_cursor( 42,389)   }          //CURSOR RAIL X
+replacenew (OTTD_GUI, "gfx/GUI.png",56)  { tmpl_cursor( 83,389)   }          //CURSOR RAIL CONVERT
+replace    (1296,     "gfx/GUI.png")     { tmpl_cursor(124,389)   }          //CURSOR RAIL DEPOT
+replace    (2434,     "gfx/GUI.png")     { tmpl_cursor(165,389)   }          //CURSOR RAIL TUNNEL
+replacenew (CATENARY, "gfx/GUI.png",40)  { tmpl_cursor(206,389)   }          //CURSOR ELRL |
+replacenew (CATENARY, "gfx/GUI.png",41)  { tmpl_cursor(247,389)   }          //CURSOR ELRL /
+replacenew (CATENARY, "gfx/GUI.png",42)  { tmpl_cursor(288,389)   }          //CURSOR ELRL -
+replacenew (CATENARY, "gfx/GUI.png",43)  { tmpl_cursor(329,389)   }          //CURSOR ELRL \
+replacenew (OTTD_GUI, "gfx/GUI.png",58)  { tmpl_cursor(370,389)   }          //CURSOR ELRL X
+replacenew (OTTD_GUI, "gfx/GUI.png",60)  { tmpl_cursor(411,389)   }          //CURSOR ELRL CONVERT
+replacenew (OTTD_GUI, "gfx/GUI.png",62)  { tmpl_cursor(452,389)   }          //CURSOR ELRL DEPOT
+replacenew (CATENARY, "gfx/GUI.png",45)  { tmpl_cursor(493,389)   }          //CURSOR ELRL TUNNEL
+replace    (1267,     "gfx/GUI.png")     { tmpl_cursor(534,389)   }          //CURSOR MONO |
+replace    (1268,     "gfx/GUI.png")     { tmpl_cursor(575,389)   }          //CURSOR MONO /
+replace    (1269,     "gfx/GUI.png")     { tmpl_cursor(616,389)   }          //CURSOR MONO -
+replace    (1270,     "gfx/GUI.png")     { tmpl_cursor(657,389)   }          //CURSOR MONO \
+replacenew (OTTD_GUI, "gfx/GUI.png",64)  { tmpl_cursor(698,389)   }          //CURSOR MONO X
+replacenew (OTTD_GUI, "gfx/GUI.png",66)  { tmpl_cursor(739,389)   }          //CURSOR MONO CONVERT
+replacenew (OTTD_GUI, "gfx/GUI.png",68)  { tmpl_cursor(780,389)   }          //CURSOR MONO DEPOT
+replace    (2435,     "gfx/GUI.png")     { tmpl_cursor(821,389)   }          //CURSOR MONO TUNNEL
+replace    (1271,     "gfx/GUI.png")     { tmpl_cursor(862,389)   }          //CURSOR MGLV |
+replace    (1272,     "gfx/GUI.png")     { tmpl_cursor(903,389)   }          //CURSOR MGLV /
+replace    (1273,     "gfx/GUI.png")     { tmpl_cursor(  1,424)   }          //CURSOR MGLV -
+replace    (1274,     "gfx/GUI.png")     { tmpl_cursor( 42,424)   }          //CURSOR MGLV \
+replacenew (OTTD_GUI, "gfx/GUI.png",70)  { tmpl_cursor( 83,424)   }          //CURSOR MGLV X
+replacenew (OTTD_GUI, "gfx/GUI.png",72)  { tmpl_cursor(124,424)   }          //CURSOR MGLV CONVERT
+replacenew (OTTD_GUI, "gfx/GUI.png",74)  { tmpl_cursor(165,424)   }          //CURSOR MGLV DEPOT
+replace    (2436,     "gfx/GUI.png")     { tmpl_cursor(206,424)   }          //CURSOR MGLV TUNNEL
+replace    (1292,     "gfx/GUI.png")     { tmpl_cursor(247,424)   }          //CURSOR TRAFFIC LIGHTS 1
+replace    (1293,     "gfx/GUI.png")     { tmpl_cursor(288,424)   }          //CURSOR TRAFFIC LIGHTS 2
+replace    (1300,     "gfx/GUI.png")     { tmpl_cursor(329,424)   }          //CURSOR RAIL STATION
+replacenew (OTTD_GUI, "gfx/GUI.png",77)  { tmpl_cursor(370,424)   }          //CURSOR WAYPOINT
+replace    (2593,     "gfx/GUI.png")     { tmpl_cursor(411,424)   }          //CURSOR BRIDGE
 //************************ CURSORS ROAD AND TRAMWAY *******************************
-replace    (1312,  "gfx/GUI.png")        { tmpl_cursor(1,432)     }          //CURSOR ROAD /
-replace    (1311,  "gfx/GUI.png")        { tmpl_cursor(34,432)    }          //CURSOR ROAD \
-replacenew (OTTD_GUI, "gfx/GUI.png",83)  { tmpl_cursor(67,432)    }          //CURSOR ROAD X
-replacenew (OTTD_GUI, "gfx/GUI.png",181) { tmpl_cursor(100,432)   }          //CURSOR ROAD CONVERT
-replace    (1297,  "gfx/GUI.png")        { tmpl_cursor(133,432)   }          //CURSOR ROAD DEPOT
-replace    (2433,  "gfx/GUI.png")        { tmpl_cursor(166,432)   }          //CURSOR ROAD TUNNEL
-replace    (2725,  "gfx/GUI.png")        { tmpl_cursor(199,432)   }          //CURSOR BUS STATION
-replace    (2726,  "gfx/GUI.png")        { tmpl_cursor(232,432)   }          //CURSOR LORRY TERMINAL
-replacenew (TRAMWAY, "gfx/GUI.png",3)    { tmpl_cursor(265,432)   }          //CURSOR TRAMWAY /
-replacenew (TRAMWAY, "gfx/GUI.png",2)    { tmpl_cursor(298,432)   }          //CURSOR TRAMWAY \
-replacenew (OTTD_GUI, "gfx/GUI.png",85)  { tmpl_cursor(331,432)   }          //CURSOR TRAMWAY X
-replacenew (OTTD_GUI, "gfx/GUI.png",183) { tmpl_cursor(364,432)   }          //CURSOR TRAMWAY CONVERT
+replace    (1311,     "gfx/GUI.png")     { tmpl_cursor(452,424)   }          //CURSOR ROAD /
+replace    (1312,     "gfx/GUI.png")     { tmpl_cursor(493,424)   }          //CURSOR ROAD \
+replacenew (OTTD_GUI, "gfx/GUI.png",83)  { tmpl_cursor(534,424)   }          //CURSOR ROAD X
+replacenew (OTTD_GUI, "gfx/GUI.png",181) { tmpl_cursor(575,424)   }          //CURSOR ROAD CONVERT
+replace    (1297,     "gfx/GUI.png")     { tmpl_cursor(616,424)   }          //CURSOR ROAD DEPOT
+replace    (2433,     "gfx/GUI.png")     { tmpl_cursor(657,424)   }          //CURSOR ROAD TUNNEL
+replace    (2725,     "gfx/GUI.png")     { tmpl_cursor(698,424)   }          //CURSOR BUS STATION
+replace    (2726,     "gfx/GUI.png")     { tmpl_cursor(739,424)   }          //CURSOR LORRY TERMINAL
+replacenew (TRAMWAY,  "gfx/GUI.png",2)   { tmpl_cursor(780,424)   }          //CURSOR TRAMWAY /
+replacenew (TRAMWAY,  "gfx/GUI.png",3)   { tmpl_cursor(821,424)   }          //CURSOR TRAMWAY \
+replacenew (OTTD_GUI, "gfx/GUI.png",85)  { tmpl_cursor(862,424)   }          //CURSOR TRAMWAY X
+replacenew (OTTD_GUI, "gfx/GUI.png",183) { tmpl_cursor(903,424)   }          //CURSOR TRAMWAY CONVERT
 //************************ CURSORS WATERWAY AND AIRPORT *******************************
-replacenew (OTTD_GUI, "gfx/GUI.png",89)  { tmpl_cursor(397,432)   }          //CURSOR CHANNEL
-replacenew (OTTD_GUI, "gfx/GUI.png",87)  { tmpl_cursor(430,432)   }          //CURSOR GATEWAY
-replacenew (OTTD_GUI, "gfx/GUI.png",137) { tmpl_cursor(463,432)   }          //CURSOR RIVER
-replace    (3668,  "gfx/GUI.png")        { tmpl_cursor(496,432)   }          //CURSOR PORT
-replacenew (OTTD_GUI, "gfx/GUI.png",146) { tmpl_cursor(529,432)   }          //CURSOR AQUEDUCT
-replace    (2724,  "gfx/GUI.png")        { tmpl_cursor(562,432)   }          //CURSOR AIRPORT
+replacenew (OTTD_GUI, "gfx/GUI.png",89)  { tmpl_cursor(  1,459)   }          //CURSOR CHANNEL
+replacenew (OTTD_GUI, "gfx/GUI.png",87)  { tmpl_cursor( 42,459)   }          //CURSOR GATEWAY
+replacenew (OTTD_GUI, "gfx/GUI.png",137) { tmpl_cursor( 83,459)   }          //CURSOR RIVER
+replace    (3668,     "gfx/GUI.png")     { tmpl_cursor(124,459)   }          //CURSOR PORT
+replacenew (OTTD_GUI, "gfx/GUI.png",146) { tmpl_cursor(165,459)   }          //CURSOR AQUEDUCT
+replace    (2724,     "gfx/GUI.png")     { tmpl_cursor(206,459)   }          //CURSOR AIRPORT
 //************************ CURSORS COPY TRANSPORT *******************************
-replacenew (OTTD_GUI, "gfx/GUI.png",110) { tmpl_cursor(595,432)   }          //CURSOR COPY TRAIN
-replacenew (OTTD_GUI, "gfx/GUI.png",111) { tmpl_cursor(628,432)   }          //CURSOR COPY RV
-replacenew (OTTD_GUI, "gfx/GUI.png",112) { tmpl_cursor(661,432)   }          //CURSOR COPY SHIP
-replacenew (OTTD_GUI, "gfx/GUI.png",113) { tmpl_cursor(694,432)   }          //CURSOR COPY AIRCRAFT
+replacenew (OTTD_GUI, "gfx/GUI.png",110) { tmpl_cursor(247,459)   }          //CURSOR COPY TRAIN
+replacenew (OTTD_GUI, "gfx/GUI.png",111) { tmpl_cursor(288,459)   }          //CURSOR COPY RV
+replacenew (OTTD_GUI, "gfx/GUI.png",112) { tmpl_cursor(329,459)   }          //CURSOR COPY SHIP
+replacenew (OTTD_GUI, "gfx/GUI.png",113) { tmpl_cursor(370,459)   }          //CURSOR COPY AIRCRAFT
 //************************ CURSORS OTHER *******************************
-replace    (2010,  "gfx/GUI.png")        { tmpl_cursor(727,432)   }          //CURSOR TREES
-replace    (4080,  "gfx/GUI.png")        { tmpl_cursor(760,432)   }          //CURSOR CITY
-replace    (4081,  "gfx/GUI.png")        { tmpl_cursor(793,432)   }          //CURSOR INDUSTRIAL
-replace    (4087,  "gfx/GUI.png")        { tmpl_cursor(826,432)   }          //CURSOR STONES
-replace    (4089,  "gfx/GUI.png")        { tmpl_cursor(892,432)   }          //CURSOR OBJECTS
-replacenew (OTTD_GUI, "gfx/GUI.png",92)  { tmpl_cursor(925,432)   }          //CURSOR LEVEL LAND
-replace    (4792,  "gfx/GUI.png")        { tmpl_cursor(1,471)     }          //CURSOR PURCHASE LAND
+replace    (2010,     "gfx/GUI.png")     { tmpl_cursor(411,459)   }          //CURSOR TREES
+replace    (4080,     "gfx/GUI.png")     { tmpl_cursor(452,459)   }          //CURSOR CITY
+replace    (4081,     "gfx/GUI.png")     { tmpl_cursor(493,459)   }          //CURSOR INDUSTRIAL
+replace    (4087,     "gfx/GUI.png")     { tmpl_cursor(534,459)   }          //CURSOR STONES
+replace    (4089,     "gfx/GUI.png")     { tmpl_cursor(575,459)   }          //CURSOR OBJECTS
+replacenew (OTTD_GUI, "gfx/GUI.png",92)  { tmpl_cursor(616,459)   }          //CURSOR LEVEL LAND
+replace    (4792,     "gfx/GUI.png")     { tmpl_cursor(657,459)   }          //CURSOR PURCHASE LAND
 //************************ MISCELLANEOUS 20PX *******************************
 replace    (143,   "gfx/GUI.png")        { tmpl_20px(1,510)       }          //CLOSE
 replacenew (OTTD_GUI, "gfx/GUI.png",184) { tmpl_20px(24,510)      }          //RENAME
@@ -366,7 +366,9 @@ replace    ( 151,  "gfx/GUI.png")        {tmpl_16px(822,533)      }          // 
 replace    ( 152,  "gfx/GUI.png")        {tmpl_16px(841,533)      }          // {BUS}
 replace    ( 153,  "gfx/GUI.png")        {tmpl_16px(860,533)      }          // {PLANE}
 replace    ( 154,  "gfx/GUI.png")        {tmpl_16px(879,533)      }          // {SHIP}
+replacenew (OTTD_GUI, "gfx/GUI.png",191) { tmpl_16px(632,517)     }          // ⁝
 //************************ *** *******************************
+
 
 
 
